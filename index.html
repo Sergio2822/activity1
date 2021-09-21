@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="InputText">
+    <button id="ActionButton" onclick="SayHello()">Click</button>
+    <h1 id="HeaderResult1"></h1>
+    <h1 id="HeaderResult2"></h1>
+    <h1 id="HeaderResult3"></h1>
+    <script>
+        function SayHello(){
+            const text_input = document.getElementById('InputText');
+            document.getElementById("HeaderResult1").innerHTML = text_input.value
+            console.log(text_input.value),
+
+            (function(){
+                var count = (text_input.value.match(/a/g) || []).length
+                document.getElementById("HeaderResult2").innerHTML = count
+                console.log(count)
+            })()
+
+            let printNameArrow = () => {
+                var vowels = /[aeiou]/
+                return vowels.test(text_input.value.toLowerCase()[0]) ? 'an':'a'
+            }
+            console.log(printNameArrow())
+            document.getElementById("HeaderResult3").innerHTML = printNameArrow()
+        }
+    </script>
+</body>
+</html>
